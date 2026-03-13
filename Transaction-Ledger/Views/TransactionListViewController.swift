@@ -9,11 +9,11 @@ import UIKit
 
 class TransactionListViewController: UIViewController {
 
-    // MARK: - MVVM: The ViewModel Instance
-    // The View holds a reference to the ViewModel so it can ask it for data
     private let viewModel = TransactionViewModel()
     
-    // MARK: - UI Components
+    // 1. Create the native Refresh Control
+    private let refreshControl = UIRefreshControl()
+    
     private let tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -28,26 +28,21 @@ class TransactionListViewController: UIViewController {
         return spinner
     }()
 
-    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        title = "Ledger"
+        title = "Live Market" // Updated title to match our crypto data!
         navigationController?.navigationBar.prefersLargeTitles = true
         
         setupUI()
         setupTableView()
-        
-        // MVVM: Set up the communication bridge BEFORE asking for data
         setupBindings()
         
-        // Start the UI loader, then tell the ViewModel to fetch from the internet
         loadingIndicator.startAnimating()
         viewModel.fetchTransactions()
     }
     
-    // MARK: - Setup Methods
     private func setupUI() {
         view.addSubview(tableView)
         view.addSubview(loadingIndicator)
@@ -64,54 +59,58 @@ class TransactionListViewController: UIViewController {
     }
     
     private func setupTableView() {
-        // Tell the table view that THIS file will handle its data and interactions
         tableView.dataSource = self
         tableView.delegate = self
+        
+        // 2. Attach the refresh control to our Table View
+        // We tell it to run the 'handleRefresh' function whenever its value changes (when pulled)
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
-    // MARK: - MVVM: The Binding
+    // 3. The function that triggers when the user pulls down
+    // The @objc tag is required because UIRefreshControl uses Apple's older Objective-C target-action system
+    @objc private func handleRefresh() {
+        print("🔄 User pulled to refresh! Fetching latest prices from the internet...")
+        
+        // We just ask the ViewModel to do its job again!
+        viewModel.fetchTransactions()
+    }
+    
     private func setupBindings() {
-        // Listen for the ViewModel's megaphone shout
-        // We use [weak self] to prevent memory leaks (Retain Cycles)
         viewModel.onDataUpdated = { [weak self] in
-            
-            // Turn off the spinner and reload the table to show the new data!
             self?.loadingIndicator.stopAnimating()
+            
+            // 4. Tell the refresh control to stop spinning and hide itself once the data arrives
+            self?.refreshControl.endRefreshing()
+            
             self?.tableView.reloadData()
         }
     }
 }
 
 // MARK: - UITableViewDataSource & Delegate
-// We use extensions to keep our code incredibly clean and readable
 extension TransactionListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // MVVM: The View asks the ViewModel how many items it has
         return viewModel.transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath)
-        
-        // MVVM: The View asks the ViewModel for the specific item at this row
         let transaction = viewModel.transactions[indexPath.row]
         
-        // Modern iOS cell configuration
         var content = cell.defaultContentConfiguration()
-        content.text = transaction.title
-        content.secondaryText = "Transaction ID: \(transaction.id)"
-        
-        // Let's add a fake "banking" icon just to make it look professional
-        content.image = UIImage(systemName: "dollarsign.circle.fill")
+        content.text = "\(transaction.name) (\(transaction.symbol.uppercased()))"
+        content.secondaryText = "Current Price: $\(transaction.current_price)"
+        content.image = UIImage(systemName: "chart.line.uptrend.xyaxis.circle.fill")
         content.imageProperties.tintColor = .systemGreen
         
         cell.contentConfiguration = content
         return cell
     }
     
-    // Un-highlight the cell when tapped (good UX practice)
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }

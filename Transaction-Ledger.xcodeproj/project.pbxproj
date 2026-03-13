@@ -6,7 +6,18 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		7878FEBC2F633B2A000D2C7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 78C8F9ED2F61ED1F00614432 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 78C8F9F42F61ED1F00614432;
+			remoteInfo = "Transaction-Ledger";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		7878FEB82F633B2A000D2C7B /* TransactionLedgerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionLedgerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C8F9F52F61ED1F00614432 /* Transaction-Ledger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Transaction-Ledger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -21,6 +32,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		7878FEB92F633B2A000D2C7B /* TransactionLedgerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TransactionLedgerTests;
+			sourceTree = "<group>";
+		};
 		78C8F9F72F61ED1F00614432 /* Transaction-Ledger */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -32,6 +48,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7878FEB52F633B2A000D2C7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		78C8F9F22F61ED1F00614432 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				78C8F9F72F61ED1F00614432 /* Transaction-Ledger */,
+				7878FEB92F633B2A000D2C7B /* TransactionLedgerTests */,
 				78C8F9F62F61ED1F00614432 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				78C8F9F52F61ED1F00614432 /* Transaction-Ledger.app */,
+				7878FEB82F633B2A000D2C7B /* TransactionLedgerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +86,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7878FEB72F633B2A000D2C7B /* TransactionLedgerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7878FEBE2F633B2A000D2C7B /* Build configuration list for PBXNativeTarget "TransactionLedgerTests" */;
+			buildPhases = (
+				7878FEB42F633B2A000D2C7B /* Sources */,
+				7878FEB52F633B2A000D2C7B /* Frameworks */,
+				7878FEB62F633B2A000D2C7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7878FEBD2F633B2A000D2C7B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				7878FEB92F633B2A000D2C7B /* TransactionLedgerTests */,
+			);
+			name = TransactionLedgerTests;
+			packageProductDependencies = (
+			);
+			productName = TransactionLedgerTests;
+			productReference = 7878FEB82F633B2A000D2C7B /* TransactionLedgerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		78C8F9F42F61ED1F00614432 /* Transaction-Ledger */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78C8FA082F61ED2200614432 /* Build configuration list for PBXNativeTarget "Transaction-Ledger" */;
@@ -93,6 +141,10 @@
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					7878FEB72F633B2A000D2C7B = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = 78C8F9F42F61ED1F00614432;
+					};
 					78C8F9F42F61ED1F00614432 = {
 						CreatedOnToolsVersion = 26.0.1;
 					};
@@ -113,11 +165,19 @@
 			projectRoot = "";
 			targets = (
 				78C8F9F42F61ED1F00614432 /* Transaction-Ledger */,
+				7878FEB72F633B2A000D2C7B /* TransactionLedgerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7878FEB62F633B2A000D2C7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		78C8F9F32F61ED1F00614432 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +188,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7878FEB42F633B2A000D2C7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		78C8F9F12F61ED1F00614432 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,7 +204,57 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7878FEBD2F633B2A000D2C7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 78C8F9F42F61ED1F00614432 /* Transaction-Ledger */;
+			targetProxy = 7878FEBC2F633B2A000D2C7B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		7878FEBF2F633B2A000D2C7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LDV4RTT6FL;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hemanth.TransactionLedgerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transaction-Ledger.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Transaction-Ledger";
+			};
+			name = Debug;
+		};
+		7878FEC02F633B2A000D2C7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LDV4RTT6FL;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hemanth.TransactionLedgerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transaction-Ledger.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Transaction-Ledger";
+			};
+			name = Release;
+		};
 		78C8FA092F61ED2200614432 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -332,6 +449,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7878FEBE2F633B2A000D2C7B /* Build configuration list for PBXNativeTarget "TransactionLedgerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7878FEBF2F633B2A000D2C7B /* Debug */,
+				7878FEC02F633B2A000D2C7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		78C8F9F02F61ED1F00614432 /* Build configuration list for PBXProject "Transaction-Ledger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
